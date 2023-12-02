@@ -4,18 +4,25 @@ with open("Input/input_1.txt", "r") as f:
     file_input = f.readlines()
 
 string_value = {
-    "zero": "0", "one": "1", "two": "2", "three":"3", "four":"4", 
-    "five":"5", "six":"6", "seven":"7", "eight":"8", "nine":"9"
+    "zero": "0", 
+    "one": "1", 
+    "two": "2", 
+    "three": "3", 
+    "four": "4", 
+    "five": "5", 
+    "six": "6", 
+    "seven": "7", 
+    "eight": "8",
+    "nine": "9"
 }
 
-answer_one = 0
-answer_two = 0
-
-only_numbers = [re.findall(r'[0-9]+', line) for line in file_input]
-
-for line in only_numbers:
-    value = int(line[0][0] + line[-1][-1])
-    answer_one += value
+def part_one():
+    answer_one = 0
+    only_numbers = [re.findall(r'[0-9]+', line) for line in file_input]
+    for line in only_numbers:
+        value = int(line[0][0] + line[-1][-1])
+        answer_one += value
+    print(answer_one)
 
 
 def get_first_index_value(line, value_dict):
@@ -33,12 +40,15 @@ def get_first_index_value(line, value_dict):
             pass    
     return line[first_int] if (first_int is not None and first_int < first_key_index) else value_dict[first_key]
 
-for line in file_input:
-    first_int = get_first_index_value(line, string_value)
-    reversed_string_dict = {key[::-1]: value for key, value in string_value.items()}
-    reversed_line = line[::-1]
-    last_int = get_first_index_value(reversed_line, reversed_string_dict)
-    answer_two += int(first_int + last_int)
+def part_two():
+    answer_two = 0
+    for line in file_input:
+        first_int = get_first_index_value(line, string_value)
+        reversed_string_dict = {key[::-1]: value for key, value in string_value.items()}
+        reversed_line = line[::-1]
+        last_int = get_first_index_value(reversed_line, reversed_string_dict)
+        answer_two += int(first_int + last_int)
+    print(answer_two)
 
-print(answer_one)
-print(answer_two)
+part_one()
+part_two()   
