@@ -1,7 +1,7 @@
 import re
 
 def open_file():
-    with open('Input/input_6.txt', 'r') as f:
+    with open('../Input/input_6.txt', 'r') as f:
         file_input = f.read()
     return file_input
 

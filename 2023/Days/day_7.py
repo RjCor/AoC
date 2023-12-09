@@ -17,7 +17,7 @@ FACE_VALUE = {
 
 
 def open_file():
-    with open('Input/input_7.txt', 'r') as f:
+    with open('../Input/input_7.txt', 'r') as f:
         file_input = f.readlines()
     return file_input
 
@@ -88,7 +88,7 @@ def convert_joker(hand, duplicates, value) -> str:
     return hand
 
 # I'm not proud, but it works.
-def get_ordered_hand(hands, joker) -> dict(str, [(str, int, list[int])]):
+def get_ordered_hand(hands, joker):
     global HAND_TYPE, FACE_VALUE
     if joker:
         FACE_VALUE['J'] = 1

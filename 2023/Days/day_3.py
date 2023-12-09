@@ -1,7 +1,7 @@
 import itertools
 import re
 
-with open("Input/input_3.txt", "r") as f:
+with open("../Input/input_3.txt", "r") as f:
     file_input = f.readlines()
 
 def get_adjacent_lines(iterable):

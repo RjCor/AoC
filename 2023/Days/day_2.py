@@ -1,6 +1,6 @@
 import re
 
-with open("Input/input_2.txt", "r") as f:
+with open("../Input/input_2.txt", "r") as f:
     file_input = f.readlines()
     
 def split_line(file_input):

@@ -1,6 +1,6 @@
 import re
 
-with open("Input/input_1.txt", "r") as f:
+with open("../Input/input_1.txt", "r") as f:
     file_input = f.readlines()
 
 string_value = {
